@@ -1,0 +1,17 @@
+$font-stack : Helvetica, sans-serif;
+$secondary-color: #313751;
+$text-Secondary: 25px;
+$primary-color: #F0F2D7;
+
+body{
+background-color: rgb(189, 221, 226);
+font-family: $font-stack;
+}
+
+.heading{
+  align-content: center;
+  padding: 5%;
+  font-size: $text-Secondary;
+  color: $primary-color;
+  background-color: $secondary-color;
+}
