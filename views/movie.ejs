@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Movies by Bruna</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    
+  </head>
+  <body>
+  <div class='container'>
+    <h2 class='heading'>Hello cine poeple!</h2>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="movie.ejs"> Movie <%= moviesObjs[movieId].title %></li>
+      </ol>
+    </nav>
+
+    
+    <h1> <%= moviesObjs[movieId].title %> </h1>
+    <h1> <%= moviesObjs[movieId].year %> </h1>
+    <h4> <%= moviesObjs[movieId].releaded %> </h4>
+    <p> <%= moviesObjs[movieId].plot %> </p>
+    <p style="color: grey" ><%= moviesObjs[movieId].director %> </p>
+    <p><%= moviesObjs[movieId].actors %> </p>
+    <img src="<%= moviesObjs[movieId].image %>" alt="movieImage" width=100%>
+    
+    </ul>
+
+
+  </div>
+  </body>
+</html>

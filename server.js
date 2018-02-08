@@ -2,15 +2,54 @@
 const express = require('express');
 const app = express();
 const port = process.argv[2] || 8080; //Set it up port number.
+var bodyParser = require("body-parser");
+
+const jsonParser = bodyParser.json();
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //linking public folder.
 app.use(express.static('public')); 
 //requiring ejs.
 app.set('view engine', 'ejs'); 
 
+
+//Stablishing endpoint 1 and passing the data on it.
+app.get('/', (req, res) => {
+  res.render('index', { 
+    moviesArr: moviesObjs,
+  })
+});
+
+app.get("/movie/:movieId", (req, res) => {
+  let {movieId} = req.params;
+  res.render("movie", {
+    moviesObjs,
+    movieId,
+  })
+});
+
+app.get("/search", function(req, res) {
+  let keymovie = req.query.searchTerm;
+  const moviesResult = moviesObjs.filter(movie => {
+    return movie.title.toLowerCase().includes(keymovie.toLowerCase());
+  });
+  res.render("index", {
+    moviesArr: moviesResult
+  });
+});
+
+//Listening to port
+app.listen(8080, () => {
+  console.log(`Server Started on http://localhost:${port}`);
+  console.log('Press CTRL + C to stop server');
+})
+
+
 //Movie Database
 const moviesObjs = [
   {
+    id:0,
     title: "Blade Runner",
     year: "1982",
     rated: "R",
@@ -23,9 +62,11 @@ const moviesObjs = [
     plot:
       "A blade runner must pursue and try to terminate four replicants who stole a ship in space and have returned to Earth to find their creator.",
     language: "English",
-    country: "USA, Hong Kong"
+    country: "USA, Hong Kong",
+    image: '/images/bladeRunner.jpg'
   },
   {
+    id:1,
     title: "The Martian",
     year: "2015",
     rated: "12",
@@ -38,9 +79,11 @@ const moviesObjs = [
     plot:
       "During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth that he is alive.",
     language: "English",
-    country: "USA, Hong Kong"
+    country: "USA, Hong Kong",
+    image:'/images/themartian.jpeg'
   },
   {
+    id:2,
     title: "Total Recall",
     year: "1990",
     rated: "14",
@@ -53,9 +96,11 @@ const moviesObjs = [
     plot:
       "When a man goes for virtual vacation memories of the planet Mars, an unexpected and harrowing series of events forces him to go to the planet for real - or does he?",
     language: "English",
-    country: "USA"
+    country: "USA",
+    image: '/images/totalrecall.jpeg'
   },
   {
+    id:3,
     title: "Ex Machina",
     year: "2014",
     rated: "14",
@@ -68,9 +113,11 @@ const moviesObjs = [
     plot:
       "A young programmer is selected to participate in a ground-breaking experiment in synthetic intelligence by evaluating the human qualities of a breath-taking humanoid A.I.",
     language: "English",
-    country: "UK"
+    country: "UK",
+    image: '/images/exmachina.jpeg'
   },
   {
+    id:4,
     title: "2001 The Space Odyssey",
     year: "1968",
     rated: "G",
@@ -83,26 +130,7 @@ const moviesObjs = [
     plot:
       "Humanity finds a mysterious, obviously artificial object buried beneath the Lunar surface and, with the intelligent computer H.A.L. 9000, sets off on a quest.",
     language: "English",
-    country: "USA"
+    country: "USA",
+    image: '/images/2001.jpg'
   }
 ];
-
-//Stablishing endpoint 1 and passing the data on it.
-app.get('/', (req, res) => {
-  res.render('index', { 
-    movies: moviesObjs
-  })
-});
-
-//New route that accepts a param.
-app.get("/movie/:movieId", (req, res) => {
-  res.send(req.params.movieId);
-});
-  
-     
-
-//Listening to port
-app.listen(8080, () => {
-  console.log(`Server Started on http://localhost:${port}`);
-  console.log('Press CTRL + C to stop server');
-});
