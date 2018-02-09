@@ -1,17 +1,35 @@
 $font-stack : Helvetica, sans-serif;
-$secondary-color: #313751;
+$terciary-color: rgb(84, 166, 233);
+$secondary-color: rgb(25, 87, 241);
 $text-Secondary: 25px;
-$primary-color: #F0F2D7;
+$primary-color:rgb(252, 252, 252);
 
 body{
-background-color: rgb(189, 221, 226);
-font-family: $font-stack;
+background-color:$primary-color;
+//font-family: $font-stack;
 }
 
 .heading{
+  font-family: 'Abril Fatface', cursive;
   align-content: center;
-  padding: 5%;
+  padding: 2%;
   font-size: $text-Secondary;
   color: $primary-color;
-  background-color: $secondary-color;
+  background-image: url(../images/bgd.jpg),
+  
 }
+
+h2.heading {
+  font-size: 70px;
+}
+
+.title{
+  color: $terciary-color;
+}
+
+.breadcrumb-item{
+  margin-top: 4px;
+  margin-bottom: 0px;
+  display: inline;
+}
+

@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brunagarcia/movieApp_assignment4.git"
+    "url": "git+https://github.com/brunagarcia/movieApp_assignment4.git"
   },
   "author": "Bruna Garcia",
   "license": "ISC",
@@ -27,5 +27,6 @@
     "nodemon": "^1.14.12",
     "readline-sync": "^1.4.7",
     "request": "^2.83.0"
-  }
+  },
+  "devDependencies": {}
 }

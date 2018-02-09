@@ -6,29 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     
   </head>
   <body>
-  <div class='container'>
-    <h2 class='heading'>Hello cine poeple!</h2>
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
+  <div class='container-fluid'>
+    <h2 class='heading'>Hello cine people!</h2>
 
-        <form class="form-inline" action='/search' method='GET'>
+<nav class="navbar-fluid navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <nav aria-label="breadcrumb" >
+      <ol class="breadcrumb text-left">
+        <li class="breadcrumb-item text-left" aria-current="/"><a href="/">Home</a></li>
+        <form class="form-inline text-right" action='/search' method='GET'>
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='searchTerm'>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </ol>
-    </nav>
+  </div>
+</nav>
     
     <ul class="list-group list-group-flush">
-    <% moviesArr.forEach((movie, index) => { %>
-      <li class="list-group-item" > 
-      <a href='http://localhost:8080/movie/<%=index%>'> <h3><%= movie.title %> </h3></a>   
-      <p> <%= movie.plot %> </p>
-      </li>
+    <% if (moviesArr.length === 0 ) { %>
+          <% console.log(moviesArr + "not found") %>
+         <li class="list-group-item" ><p> The movie you typped doesn't exist in our database. Sorry! </p></li>
+        
+        <% } else { %>
+
+          <% moviesArr.forEach((movie, index) => { %>
+
+          <li class="list-group-item" > 
+          <a href='http://localhost:8080/movie/<%=index%>'> <h3 class='title' ><%= movie.title %> </h3></a>   
+          <p> <%= movie.plot %> </p>
+          </li>
       <% }) %>
+    <% } %>
     </ul>
   </div>
   </body>

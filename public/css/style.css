@@ -1,1 +1,21 @@
-body{background-color:#bddde2;font-family:Helvetica,sans-serif}.heading{align-content:center;padding:5%;font-size:25px;color:#F0F2D7;background-color:#313751}
+body {
+  background-color: #fcfcfc; }
+
+.heading {
+  font-family: 'Abril Fatface', cursive;
+  align-content: center;
+  padding: 2%;
+  font-size: 25px;
+  color: #fcfcfc;
+  background-image: url(../images/bgd.jpg); }
+
+h2.heading {
+  font-size: 70px; }
+
+.title {
+  color: #54a6e9; }
+
+.breadcrumb-item {
+  margin-top: 4px;
+  margin-bottom: 0px;
+  display: inline; }
