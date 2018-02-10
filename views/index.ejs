@@ -1,56 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Movies by Bruna</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Arimo:700" rel="stylesheet">
+<% include partials/nav %>
     
-  </head>
-  <body>
-  <div class='container-fluid'>
-    <h2 class='heading'>SCI FI FLICKS</h2>
+    <div class="content">
+        <ul class="list-group list-group-flush">
 
-<nav class="navbar-fluid navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <nav aria-label="breadcrumb" >
-      <ol class="breadcrumb text-left">
-        <li class="breadcrumb-item text-left" aria-current="/"><a href="/">Home</a></li>
-        <form class="form-inline text-right" action='/search' method='GET'>
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='searchTerm'>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </ol>
-  </div>
-</nav>
-    
-    <ul class="list-group list-group-flush">
-    <div class="container">
-      <div class="row">
-    <% if (moviesArr.length === 0 ) { %>
-         <li class="list-group-item" ><p> The movie you typped doesn't exist in our database. Sorry! </p></li>
-        
-        <% } else { %>
-          <% moviesArr.forEach((movie, index) => { %>
-              <div class="card col-sm-2 col-md-4 col-lg-8" style="width: 18rem;">
-                <img class="card-img-top" src="<%= movie.image %>" width="200px">
-                  <div class="card-body">
-                    <a href='http://localhost:8080/movie/<%=index%>'><h5 class="card-title"><%= movie.title %> </h5> </a>
-                    <p class="card-text"><%= movie.plot %></p>
+        <% if (moviesArr.length === 0 ) { %>
+            <li class="list-group-item" ><h2> The movie you typped doesn't exist in our database. Sorry! </h2></li>
+            
+            <% } else { %>
+          <div class="row">
+
+              <% moviesArr.forEach((movie, index) => { %>
+                <div class="col-sm-6 col-md-3 col-lg-3 colMargin">
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="http://image.tmdb.org/t/p/original<%= movie.poster_path %>" width="200px">
+                      <div class="card-body">
+                        <a href='http://localhost:8080/movie/<%=index%>'><h5 class="card-title"><%= movie.title %> </h5> </a>
+                      </div>
                   </div>
-              </div>
-          <% }) %>
-        <% } %>
+                </div>
+              <% }) %>
+            <% } %>
+
           </div>
-      </div>
+      </div>        
+  </div> 
 
-
-
-
-
-
-
-  </body>
+</body>
 </html>

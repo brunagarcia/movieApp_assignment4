@@ -1,44 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Movies by Bruna</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Arimo:700" rel="stylesheet">
-  </head>
-  <body>
-  <div class='container-fluid'>
-    <h2 class='heading'>SCI FI FLICKS</h2>
+<% include partials/navMovie %>
+  <div class="content">
+    <div class="list-group list-group-flush">  
+      <div class="row">
+        <div class="col-md-6">
+          <img src="http://image.tmdb.org/t/p/original<%= moviesObjs[movieId].poster_path %>" alt="movieImage" width=400px>
+        </div>  
+        <div class="col-md-6">
 
-<nav class="navbar-fluid navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <nav aria-label="breadcrumb" >
-      <ol class="breadcrumb text-left">
-        <li class="breadcrumb-item text-left"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="movie.ejs"> Movie <%= moviesObjs[movieId].title %></li>
-        <form class="form-inline text-right" action='/search' method='GET'>
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='searchTerm'>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </ol>
+            <h2>  <%= moviesObjs[movieId].title %></h2>
+            <h3> Release Date: <%= moviesObjs[movieId].release_date %> </h3>
+            <h4> Language: <%= moviesObjs[movieId].original_language %> </h4>
+            <p> <%= moviesObjs[movieId].overview %> </p>
+          
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
+</div>
 
-
-
-    <ul class="list-group list-group-flush">
-    <li class="list-group-item" ><h1> <img src="<%= moviesObjs[movieId].image %>" alt="movieImage" width=400px> <%= moviesObjs[movieId].title %></h1>
-    <h3> <%= moviesObjs[movieId].year %> </h3>
-    <h4> <%= moviesObjs[movieId].releaded %> </h4>
-    <p> <%= moviesObjs[movieId].plot %> </p>
-    <p style="color: grey" ><%= moviesObjs[movieId].director %> </p>
-    <p><%= moviesObjs[movieId].actors %> </p>
-    </li>
-    </ul>
-
-
-  </div>
-  </body>
+</body>
 </html>

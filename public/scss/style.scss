@@ -29,9 +29,23 @@ h2.heading {
 .breadcrumb-item {
   margin-top: 4px;
   margin-bottom: 0px;
-  display: inline;
 }
 
-.card {
+.card .colMargin {
   margin-right: 4%;
+  margin-bottom: 2%;
+}
+
+.content{
+  margin: 2% 5%;
+}
+
+.navbar{
+  background-color: $primary-color;
+  width: 100%;
+}
+
+.breadcrumb{
+  margin: 0;
+  width: 100%;
 }
