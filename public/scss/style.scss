@@ -1,35 +1,37 @@
-$font-stack : Helvetica, sans-serif;
+$font-stack: Helvetica, sans-serif;
 $terciary-color: rgb(84, 166, 233);
 $secondary-color: rgb(25, 87, 241);
 $text-Secondary: 25px;
-$primary-color:rgb(252, 252, 252);
+$primary-color: rgb(252, 252, 252);
 
-body{
-background-color:$primary-color;
-//font-family: $font-stack;
+body {
+  background-color: $primary-color;
+  //font-family: $font-stack;
 }
 
-.heading{
-  font-family: 'Abril Fatface', cursive;
-  align-content: center;
+.heading {
+  font-family: "Arimo", sans-serif;
+  text-align: center;
   padding: 2%;
   font-size: $text-Secondary;
   color: $primary-color;
-  background-image: url(../images/bgd.jpg),
-  
+  background-image: url(../images/bgd.jpg);
 }
 
 h2.heading {
   font-size: 70px;
 }
 
-.title{
+.title {
   color: $terciary-color;
 }
 
-.breadcrumb-item{
+.breadcrumb-item {
   margin-top: 4px;
   margin-bottom: 0px;
   display: inline;
 }
 
+.card {
+  margin-right: 4%;
+}

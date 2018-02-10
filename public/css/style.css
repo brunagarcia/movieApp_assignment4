@@ -2,8 +2,8 @@ body {
   background-color: #fcfcfc; }
 
 .heading {
-  font-family: 'Abril Fatface', cursive;
-  align-content: center;
+  font-family: "Arimo", sans-serif;
+  text-align: center;
   padding: 2%;
   font-size: 25px;
   color: #fcfcfc;
@@ -19,3 +19,6 @@ h2.heading {
   margin-top: 4px;
   margin-bottom: 0px;
   display: inline; }
+
+.card {
+  margin-right: 4%; }

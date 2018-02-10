@@ -1,4 +1,5 @@
 //require modules.
+const request = require('request');
 const express = require('express');
 const app = express();
 const port = process.argv[2] || 8080; //Set it up port number.
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public')); 
 //requiring ejs.
 app.set('view engine', 'ejs'); 
+
 
 
 //Stablishing endpoint 1 and passing the data on it.
