@@ -52,27 +52,32 @@ fs.readFile("movieDb.txt", (error, data) => {
 //Establishing endpoints.
 app.get('/', (req, res) => {
   res.render('index', { 
-    moviesArr: moviesObjs,
+    moviesArr: moviesObjs
   })
 });
 
 app.get("/movie/:movieId", (req, res) => {
-  let {movieId} = req.params;
-  res.render("movie", {
-    moviesObjs,
-    movieId,
-  })
+  let movieId = req.params.movieId;
+  console.log(movieId);
+  res.render("movie", { 
+    moviesArr: moviesObjs,
+    movieId 
+  });
 });
+
 
 app.get("/search", (req, res,) => {
   let keymovie = req.query.searchTerm;
+  console.log(keymovie);
   const moviesResult = moviesObjs.filter(movie => {
-    return movie.title.split(' ').join('').toLowerCase().includes(keymovie.toLowerCase());
+    return movie.title.toLowerCase().includes(keymovie.toLowerCase());
+    console.log(moviesArr);
   });
   res.render("index", {
-    moviesArr: moviesResult
+    moviesArr: moviesResult,
   });
 });
+
 
 // Handle 404
 app.use((req, res, next) => {

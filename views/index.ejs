@@ -9,12 +9,12 @@
             <% } else { %>
           <div class="row">
 
-              <% moviesArr.forEach((movie, index) => { %>
+              <% moviesArr.forEach(movie => { %>
                 <div class="col-sm-6 col-md-3 col-lg-3 colMargin">
                   <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="http://image.tmdb.org/t/p/original<%= movie.poster_path %>" width="200px">
                       <div class="card-body">
-                        <a href='http://localhost:8080/movie/<%=index%>'><h5 class="card-title"><%= movie.title %> </h5> </a>
+                        <a href='http://localhost:8080/movie/<%=movie.id%>'><h5 class="card-title"><%= movie.title %> </h5> </a>
                       </div>
                   </div>
                 </div>
